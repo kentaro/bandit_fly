@@ -10,6 +10,7 @@ defmodule BanditFly.Application do
     children = [
       # Starts a worker by calling: BanditFly.Worker.start_link(arg)
       # {BanditFly.Worker, arg}
+      {Bandit, plug: BanditFly.Plug, scheme: :http, options: [port: String.to_integer(System.get_env("PORT"))]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
